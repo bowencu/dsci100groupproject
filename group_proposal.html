@@ -14694,12 +14694,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="c1">#read data</span>
-<span class="n">heart</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;heart.csv&quot;</span><span class="p">)</span>
+<span class="n">heart</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;https://raw.githubusercontent.com/bowencu/dsci100groupproject/main/heart.csv&quot;</span><span class="p">)</span>
 
 <span class="c1">#clean and wrangle data</span>
 <span class="n">heart</span> <span class="o">&lt;-</span> <span class="n">heart</span> <span class="o">|&gt;</span>
-    <span class="nf">mutate</span><span class="p">(</span><span class="n">target</span> <span class="o">=</span> <span class="nf">as_factor</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
-    <span class="c1">#select(age, thalach, target)</span>
+    <span class="nf">mutate</span><span class="p">(</span><span class="n">target</span> <span class="o">=</span> <span class="nf">as_factor</span><span class="p">(</span><span class="n">target</span><span class="p">))</span> <span class="o">|&gt;</span>
+    <span class="nf">select</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">thalach</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
 <span class="n">heart</span>
 </pre></div>
 
@@ -14742,23 +14742,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
 <table class="dataframe">
-<caption>A tibble: 1025 × 14</caption>
+<caption>A tibble: 1025 × 3</caption>
 <thead>
-	<tr><th scope=col>age</th><th scope=col>sex</th><th scope=col>cp</th><th scope=col>trestbps</th><th scope=col>chol</th><th scope=col>fbs</th><th scope=col>restecg</th><th scope=col>thalach</th><th scope=col>exang</th><th scope=col>oldpeak</th><th scope=col>slope</th><th scope=col>ca</th><th scope=col>thal</th><th scope=col>target</th></tr>
-	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+	<tr><th scope=col>age</th><th scope=col>thalach</th><th scope=col>target</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><td>52</td><td>1</td><td>0</td><td>125</td><td>212</td><td>0</td><td>1</td><td>168</td><td>0</td><td>1.0</td><td>2</td><td>2</td><td>3</td><td>0</td></tr>
-	<tr><td>53</td><td>1</td><td>0</td><td>140</td><td>203</td><td>1</td><td>0</td><td>155</td><td>1</td><td>3.1</td><td>0</td><td>0</td><td>3</td><td>0</td></tr>
-	<tr><td>70</td><td>1</td><td>0</td><td>145</td><td>174</td><td>0</td><td>1</td><td>125</td><td>1</td><td>2.6</td><td>0</td><td>0</td><td>3</td><td>0</td></tr>
-	<tr><td>61</td><td>1</td><td>0</td><td>148</td><td>203</td><td>0</td><td>1</td><td>161</td><td>0</td><td>0.0</td><td>2</td><td>1</td><td>3</td><td>0</td></tr>
-	<tr><td>62</td><td>0</td><td>0</td><td>138</td><td>294</td><td>1</td><td>1</td><td>106</td><td>0</td><td>1.9</td><td>1</td><td>3</td><td>2</td><td>0</td></tr>
-	<tr><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
-	<tr><td>59</td><td>1</td><td>1</td><td>140</td><td>221</td><td>0</td><td>1</td><td>164</td><td>1</td><td>0.0</td><td>2</td><td>0</td><td>2</td><td>1</td></tr>
-	<tr><td>60</td><td>1</td><td>0</td><td>125</td><td>258</td><td>0</td><td>0</td><td>141</td><td>1</td><td>2.8</td><td>1</td><td>1</td><td>3</td><td>0</td></tr>
-	<tr><td>47</td><td>1</td><td>0</td><td>110</td><td>275</td><td>0</td><td>0</td><td>118</td><td>1</td><td>1.0</td><td>1</td><td>1</td><td>2</td><td>0</td></tr>
-	<tr><td>50</td><td>0</td><td>0</td><td>110</td><td>254</td><td>0</td><td>0</td><td>159</td><td>0</td><td>0.0</td><td>2</td><td>0</td><td>2</td><td>1</td></tr>
-	<tr><td>54</td><td>1</td><td>0</td><td>120</td><td>188</td><td>0</td><td>1</td><td>113</td><td>0</td><td>1.4</td><td>1</td><td>1</td><td>3</td><td>0</td></tr>
+	<tr><td>52</td><td>168</td><td>0</td></tr>
+	<tr><td>53</td><td>155</td><td>0</td></tr>
+	<tr><td>70</td><td>125</td><td>0</td></tr>
+	<tr><td>61</td><td>161</td><td>0</td></tr>
+	<tr><td>62</td><td>106</td><td>0</td></tr>
+	<tr><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><td>59</td><td>164</td><td>1</td></tr>
+	<tr><td>60</td><td>141</td><td>0</td></tr>
+	<tr><td>47</td><td>118</td><td>0</td></tr>
+	<tr><td>50</td><td>159</td><td>1</td></tr>
+	<tr><td>54</td><td>113</td><td>0</td></tr>
 </tbody>
 </table>
 
